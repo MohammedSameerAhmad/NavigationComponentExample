@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+
 
 class FirstFragment : Fragment() {
 
@@ -24,7 +26,10 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment )
+        view.findViewById<TextView>(R.id.txtOne).setOnClickListener{
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+            findNavController().navigate(action)
+        }
     }
 
     companion object {
