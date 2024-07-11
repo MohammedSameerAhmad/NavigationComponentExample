@@ -5,17 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.sameerapps.navigationcomponentexample.models.User
 
 
 class FirstFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    lateinit var editFirstName: EditText
+    lateinit var editLastName: EditText
+    lateinit var btnSend: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,10 +26,15 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.txtOne).setOnClickListener{
-            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+       editFirstName = view.findViewById(R.id.editFirstName)
+        editLastName = view.findViewById(R.id.editLastName)
+        btnSend = view.findViewById(R.id.btnSend)
+        btnSend.setOnClickListener{
+            val user = User(editFirstName.text.toString(), editLastName.text.toString())
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(user)
             findNavController().navigate(action)
         }
+        view.findViewById<TextView>(R.id.textView).text = "${this.hashCode()}"
     }
 
     companion object {

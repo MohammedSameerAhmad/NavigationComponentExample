@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF5722"
+    android:background="#3F51B5"
+    android:orientation="vertical"
     tools:context=".FirstFragment">
 
     <TextView
-        android:id="@+id/txtThird"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:textSize="20sp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_margin="48dp"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/txtSecond"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
         android:textSize="48sp"
-        android:textColor="@color/white"
-        android:text="3" />
+        android:textColor="@color/white" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next" />
+
+
+</LinearLayout>

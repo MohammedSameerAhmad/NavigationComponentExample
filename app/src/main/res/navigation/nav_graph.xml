@@ -23,9 +23,8 @@
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
         <argument
-            android:name="passingString"
-            app:argType="string"
-            android:defaultValue="no value"/>
+            android:name="passingParcellableObject"
+            app:argType="com.sameerapps.navigationcomponentexample.models.User" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
@@ -40,5 +39,15 @@
         android:id="@+id/fourthFragment"
         android:name="com.sameerapps.navigationcomponentexample.FourthFragment"
         android:label="fragment_fourth"
-        tools:layout="@layout/fragment_fourth" />
+        tools:layout="@layout/fragment_fourth" >
+        <action
+            android:id="@+id/action_fourthFragment_to_firstFragment"
+            app:destination="@id/firstFragment"
+            app:popUpTo="@id/firstFragment"/>
+        <action
+            android:id="@+id/action_fourthFragment_to_firstFragment_inclusive"
+            app:destination="@id/firstFragment"
+            app:popUpTo="@id/firstFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

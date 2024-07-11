@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.NavArgsLazy
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,7 +39,11 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         txtSecond = view.findViewById(R.id.txtSecond)
-        txtSecond.text = args.passingString
+        txtSecond.text = "First Name: ${args.passingParcellableObject.firstName} \n Last Name: ${args.passingParcellableObject.lastName}"
+        view.findViewById<Button>(R.id.btnNext).setOnClickListener{
+            val action = SecondFragmentDirections.actionSecondFragmentToThirdFragment()
+            findNavController().navigate(action)
+        }
     }
 
     companion object {
